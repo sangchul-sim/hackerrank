@@ -3,7 +3,7 @@ package arrays
 import (
 	"fmt"
 
-	"hackersrank/util"
+	"hackerrank/util"
 )
 
 /**

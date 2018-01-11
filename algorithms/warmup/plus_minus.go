@@ -3,7 +3,7 @@ package warmup
 import (
 	"fmt"
 
-	"hackersrank/util"
+	"hackerrank/util"
 )
 
 func PlusMinus() {

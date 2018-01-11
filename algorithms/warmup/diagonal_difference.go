@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math"
 
-	"hackersrank/util"
+	"hackerrank/util"
 )
 
 func intSum(data []int) int {

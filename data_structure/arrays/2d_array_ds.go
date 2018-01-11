@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sort"
 
-	"hackersrank/util"
+	"hackerrank/util"
 )
 
 /**
