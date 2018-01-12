@@ -43,7 +43,7 @@ func TwoDArrayDs() {
 	matrix := make([][]int, n)
 
 	for i := 0; i < n; i++ {
-		a, err := util.ScanSlice(n)
+		a, err := util.IntScanlnSlice(n)
 		if err != nil {
 			panic(err)
 		}

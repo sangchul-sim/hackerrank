@@ -25,7 +25,7 @@ func IntScanln(n int) ([]int, error) {
 	return x, err
 }
 
-func ScanSlice(n int) ([]int, error) {
+func IntScanlnSlice(n int) ([]int, error) {
 	var intSlice []int
 	for i := 0; i < n; i++ {
 		var temp int
@@ -35,4 +35,16 @@ func ScanSlice(n int) ([]int, error) {
 		intSlice = append(intSlice, temp)
 	}
 	return intSlice, nil
+}
+
+func StringScanlnSlice(n int) ([]string, error) {
+	var stringSlice []string
+	for i := 0; i < n; i++ {
+		var temp string
+		if _, err := fmt.Scan(&temp); err != nil {
+			return []string{}, err
+		}
+		stringSlice = append(stringSlice, temp)
+	}
+	return stringSlice, nil
 }

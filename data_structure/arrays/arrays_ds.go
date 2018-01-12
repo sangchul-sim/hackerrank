@@ -19,7 +19,7 @@ func ArraysDs() {
 	if _, err := fmt.Scan(&n); err != nil {
 		panic(err)
 	}
-	a, err := util.ScanSlice(n)
+	a, err := util.IntScanlnSlice(n)
 	if err != nil {
 		panic(err)
 	}

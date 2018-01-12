@@ -77,7 +77,7 @@ func GamingArray() {
 		}
 		fmt.Println("lenOfArr", lenOfArr)
 		//gameArr[i], err = intScanln(lenOfArr)
-		gameArr[i], err = util.ScanSlice(lenOfArr)
+		gameArr[i], err = util.IntScanlnSlice(lenOfArr)
 		if err != nil {
 			panic(err)
 		}

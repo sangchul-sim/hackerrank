@@ -29,7 +29,7 @@ func Rotation() {
 		panic(n)
 	}
 
-	a, err := util.ScanSlice(n)
+	a, err := util.IntScanlnSlice(n)
 	if err != nil {
 		panic(err)
 	}
