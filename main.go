@@ -7,5 +7,6 @@ func main() {
 	//arrays.TwoDArrayDs()
 	//arrays.DynamicArray()
 	//arrays.Rotation()
-	arrays.SparseArrays()
+	//arrays.SparseArrays()
+	arrays.ArrayManipulation()
 }
