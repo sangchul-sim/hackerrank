@@ -1,7 +1,6 @@
 package arrays
 
 import (
-	"bufio"
 	"fmt"
 	"log"
 	"os"
@@ -39,39 +38,52 @@ After third update list will be 100 200 200 200 100.
 So the required answer will be 200.
 
 시간이 오래 걸려서 test case failed..
-sort.Sort 문제일까?
+
 */
 func ArrayManipulation() {
-	//var (
-	//	listSize int
-	//	n        int
-	//)
-	//if _, err := fmt.Scan(&listSize); err != nil {
-	//	panic(err)
-	//}
-	//if _, err := fmt.Scan(&n); err != nil {
-	//	panic(err)
-	//}
-	//
-	//lines := make([][]int, n)
-	//for i := 0; i < n; i++ {
-	//	a, err := util.IntScanlnSlice(n)
-	//	if err != nil {
-	//		panic(err)
-	//	}
-	//	lines[i] = a
-	//}
-	//
-	//sequence := make([]int, listSize)
-	//for _, item := range lines {
-	//	updateSequenceByRangeIndex(sequence, item[0]-1, item[1]-1, item[2])
-	//}
-	//
+	var (
+		n int
+		m int
+	)
+	if _, err := fmt.Scan(&n); err != nil {
+		panic(err)
+	}
+	if _, err := fmt.Scan(&m); err != nil {
+		panic(err)
+	}
+
+	sequence := make([]int, n)
+	for i := 0; i < m; i++ {
+		var (
+			a int
+			b int
+			k int
+		)
+
+		if _, err := fmt.Scanln(&a, &b, &k); err != nil {
+			panic(err)
+		}
+		//updateSequenceByRangeIndex(sequence, a-1, b-1, k)
+		//
+		sequence[a-1] += k
+		if b < n {
+			sequence[b] -= k
+		}
+	}
+
 	//a := sort.IntSlice(sequence)
 	//sort.Sort(a)
 	//fmt.Println(a[len(a)-1])
-	//readWithScanner()
-	readWithScanner2()
+	//
+	sum := 0
+	max := 0
+	for i := 0; i < n; i++ {
+		sum += sequence[i]
+		if max < sum {
+			max = sum
+		}
+	}
+	fmt.Println(max)
 }
 
 func updateSequenceByRangeIndex(sequence []int, start, end, val int) {
@@ -80,91 +92,42 @@ func updateSequenceByRangeIndex(sequence []int, start, end, val int) {
 	}
 }
 
-func readWithScanner2() {
+func ArrayManipulationCase11() {
 	var (
-		listSize int
-		n        int
+		n int
+		m int
 	)
 	file, err := os.Open("data_structure/arrays/input/array_manipulation11.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
-	if _, err := fmt.Fscan(file, &listSize, &n); err != nil {
+	if _, err := fmt.Fscan(file, &n, &m); err != nil {
 		panic(err)
 	}
-	fmt.Println("listSize", listSize, "n", n)
 
-	lines := make([][]int, n)
-	for i := 0; i < n; i++ {
+	sequence := make([]int, n)
+	for i := 0; i < m; i++ {
 		var (
-			start int
-			end   int
-			val   int
+			a int
+			b int
+			k int
 		)
-
-		if _, err := fmt.Fscanln(file, &start, &end, &val); err != nil {
+		if _, err := fmt.Fscanln(file, &a, &b, &k); err != nil {
 			panic(err)
 		}
-		//a := [3]int{start, end, val}
-		a := make([]int, n)
-		a[0] = start
-		a[1] = end
-		a[2] = val
-
-		//a := [n]int{
-		//	start,
-		//	end,
-		//	val,
-		//}
-
-		lines[i] = a
-	}
-	sequence := make([]int, listSize)
-	for _, item := range lines {
-		updateSequenceByRangeIndex(sequence, item[0]-1, item[1]-1, item[2])
-	}
-
-	//a := sort.IntSlice(sequence)
-	//sort.Sort(a)
-	//fmt.Println(a[len(a)-1])
-	fmt.Println(sequence[len(sequence)-1])
-}
-
-func readWithScanner() {
-	// Open file and create scanner on top of it
-	file, err := os.Open("data_structure/arrays/input/array_manipulation12.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-	scanner := bufio.NewScanner(file)
-
-	// Default scanner is bufio.ScanLines. Lets use ScanWords.
-	// Could also use a custom function of SplitFunc type
-	scanner.Split(bufio.ScanLines)
-	//scanner.Split(bufio.ScanWords)
-
-	for {
-		// Scan for next token.
-		success := scanner.Scan()
-		if success == false {
-			// False on error or EOF. Check error
-			err = scanner.Err()
-			if err == nil {
-				log.Println("Scan completed and reached EOF")
-			} else {
-				log.Fatal(err)
-			}
-			break
+		sequence[a-1] += k
+		if b < n {
+			sequence[b] -= k
 		}
-
-		// Get data from scan with Bytes() or Text()
-
-		//io.ByteReader()
-		//strings.Split(scanner.Text(), " ")
-		//fmt.Fscan()
-
-		fmt.Println("First word found:", scanner.Text())
 	}
 
-	// Call scanner.Scan() again to find next token
+	sum := 0
+	max := 0
+	for i := 0; i < n; i++ {
+		sum += sequence[i]
+		if max < sum {
+			max = sum
+		}
+	}
+	fmt.Println(max)
 }
