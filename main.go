@@ -1,6 +1,6 @@
 package main
 
-import "hackerrank/data_structure/arrays"
+import "hackerrank/fitness"
 
 func main() {
 	//arrays.ArraysDs()
@@ -8,6 +8,6 @@ func main() {
 	//arrays.DynamicArray()
 	//arrays.Rotation()
 	//arrays.SparseArrays()
-	arrays.ArrayManipulation()
-	//arrays.ArrayManipulationCase11()
+	//arrays.ArrayManipulation()
+	fitness.Fitness()
 }
